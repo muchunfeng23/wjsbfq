@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<flashapi>
+  
+  <!--flash文件路径，可以是相对或绝对路径-->
+  <swfpath>FerrisWheel.swf</swfpath>
+  
+  <!--是否隐藏鼠标指针 隐藏:true 不隐藏:false-->
+  <hidecursor>false</hidecursor>
+  
+  <!--是否忽略鼠标右键 是:true 否:false-->
+  <ignorerightclick>false</ignorerightclick>
+  
+  <!--指定引擎发送的识别数据分辨率-->
+  <x>20</x>
+  <y>10</y>
+  
+</flashapi>
