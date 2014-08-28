@@ -53,7 +53,7 @@
 		
 		private function onPlay(event:MouseEvent):void
 		{
-			
+			super.director.goIntoScene(CurrentScene.LET_US_PLAY_SCENE);
 		}
 
 	}

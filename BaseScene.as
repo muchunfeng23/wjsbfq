@@ -4,6 +4,7 @@
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.display.Sprite;
+	import flash.display.Loader;
 	
 	public class BaseScene extends MovieClip
 	{
@@ -27,7 +28,7 @@
 
 		public function leaveScene(sceneName:String):void
 		{
-
+			
 		}
 
 		//摄像头捕捉动作
@@ -54,6 +55,7 @@
 		//增加一个测试面板，测试iCall坐标
 		public function addTestScene():void
 		{
+			/*
 			createSquare(10,20);
 			
 			_debugDialog.x = 0;
@@ -66,7 +68,12 @@
 			_debugDialog.backgroundColor = 0x000000;
 			_debugDialog.borderColor = 0xFF0000;
 			this.addChild(_debugDialog);
-			
+			*/
+		}
+		
+		public function addMask(loader1:Loader):void
+		{
+			addChild(loader1);
 		}
 		
 		public function setTestValue(testValue:String):void{

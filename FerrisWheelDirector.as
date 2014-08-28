@@ -2,6 +2,8 @@
 	import flash.display.MovieClip;
 	import flash.external.ExternalInterface;
 	import flash.display.Stage;
+	import flash.display.Loader;
+	import flash.net.URLRequest;
 	
 	public class FerrisWheelDirector extends MovieClip{
 		public var curScene:BaseScene;
@@ -11,17 +13,24 @@
 		private var followMeScene:BaseScene = new FollowMeScene(FerrisWheelDirector(this));
 		private var itIsMagic:BaseScene = new ItIsMagicScene(FerrisWheelDirector(this));
 		private var singTheSong:BaseScene = new SingTheSongScene(FerrisWheelDirector(this));
+		private var letUsPlayScene:BaseScene = new LetUsPlayScene(FerrisWheelDirector(this));
+		
 		private var icallAskNum:int = 0;
+		private var loader:Loader;
+		private var url:URLRequest;
 		
 		public function FerrisWheelDirector() {
 			// constructor code
 			ExternalInterface.addCallback("iCall", iCall);
+			loader =new Loader();
+			url = new URLRequest("mask.swf");
+			loader.load(url);
  			this.goIntoScene(CurrentScene.OPENING_SCENE);
-			
 		}
 		
 		//这个是被互动软件回调，摄像头每感知到一次就调用一次
 		public function iCall(param:String):void{
+			  /*
 			  if(curScene != null){
 			      curScene.setTestValue("" + icallAskNum + "               " + param);
 				  curScene.drawRect(param);
@@ -29,6 +38,7 @@
 			  if(icallAskNum++ < 5){
 				  
 			  }
+			  */
 			  
 		}
 		
@@ -55,10 +65,14 @@
 				case CurrentScene.IT_IS_MAGIC_SCENE:
 					curScene = itIsMagic;
 					break;
+				case CurrentScene.LET_US_PLAY_SCENE:
+					curScene = letUsPlayScene;
+					break;
 			}
 			curScene.initScene(sceneName);
-			curScene.addTestScene();
+			//curScene.addMask(loader);
 			stage.addChild(curScene);
+			stage.addChild(loader);
 		}
 
 	}
